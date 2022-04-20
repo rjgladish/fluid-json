@@ -355,7 +355,7 @@ interface MyCodecProvider : JsonCodecProvider<JsonCodingContext>
 Examples
 --------
 
-Have a look at the [examples](https://github.com/fluidsonic/fluid-json/tree/master/examples/sources) directory. If you've checked out this project locally then
+Have a look at the [examples](https://github.com/fluidsonic/fluid-json/tree/master/examples/sources-jvm) directory. If you've checked out this project locally then
 you can run them directly from within [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
 
@@ -380,7 +380,7 @@ mapOf(
 
 You can also accept a `null` value by using `parseValueOrNull` instead.
 
-[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0010-Parsing.kt)
+[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0010-Parsing.kt)
 
 ### Simple Serializing
 
@@ -394,7 +394,7 @@ JsonSerializer.default.serializeValue(mapOf(
 // {"hello":"world","test":123}
 ```
 
-[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0020-Serializing.kt)
+[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0020-Serializing.kt)
 
 ### Using Reader and Writer
 
@@ -408,8 +408,8 @@ val writer: Writer = …
 JsonSerializer.default.serializeValue(…, destination = writer)
 ```
 
-Full example [for Reader](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0011-ParsingFromReader.kt)
-and [for Writer](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0021-SerializingToWriter.kt)
+Full example [for Reader](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0011-ParsingFromReader.kt)
+and [for Writer](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0021-SerializingToWriter.kt)
 
 ### Parsing Lists and Maps
 
@@ -428,8 +428,8 @@ parser.parseValueOfType<Map<String, String?>>(…)  // returns Map<String,String
 Note that you can also specify non-nullable `String` instead of nullable `String?`. But due to a limitation of Kotlin and the JVM the resulting list/map can
 always contain `null` keys and values. This can cause an unexpected `NullPointerException` at runtime if the source data contains `null`s.
 
-Full example [for Lists](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0012-ParsingLists.kt)
-and [for Maps](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0013-ParsingMaps.kt)
+Full example [for Lists](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0012-ParsingLists.kt)
+and [for Maps](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0013-ParsingMaps.kt)
 
 ### Streaming Parser
 
@@ -449,8 +449,8 @@ JsonReader.build(input).use { reader ->
 ```
 
 Full example
-[using higher-order functions](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0014-ParsingAsStream.kt) and
-[using low-level functions](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0015-ParsingAsStreamLowLevel.kt)
+[using higher-order functions](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0014-ParsingAsStream.kt) and
+[using low-level functions](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0015-ParsingAsStreamLowLevel.kt)
 
 ### Streaming Writer
 
@@ -472,8 +472,8 @@ JsonWriter.build(output).use { writer ->
 ```
 
 Full example
-[using higher-order functions](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0022-SerializingAsStream.kt) and
-[using low-level functions](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0023-SerializingAsStreamLowLevel.kt)
+[using higher-order functions](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0022-SerializingAsStream.kt) and
+[using low-level functions](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0023-SerializingAsStreamLowLevel.kt)
 
 ### Type Encoder Codecs
 
@@ -499,7 +499,7 @@ object MyTypeCodec : AbstractJsonEncoderCodec<MyType, JsonCodingContext>() {
 }
 ```
 
-[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0030-TypeEncoderCodecs.kt)
+[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0030-TypeEncoderCodecs.kt)
 
 ### Type Decoder Codecs
 
@@ -529,7 +529,7 @@ A `JsonDecoderCodec` can also decode generic types. The instance passed to `Json
 which caused this codec to be invoked. For `List<Something>` for example a single generic argument of type `Something` would be reported which allows for
 example the list codec to serialize the list value's directly as `Something` using the respective codec.
 
-[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0031-TypeDecoderCodecs.kt)
+[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0031-TypeDecoderCodecs.kt)
 
 ### Type Codecs
 
@@ -538,14 +538,14 @@ If you want to be able to encode and decode the same type you can implement the 
 
 Because `JsonCodec` is simply an interface you can use `AbstractJsonCodec` as base class for your codec which simplifies implementing that interface.
 
-[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0032-TypeCodecs.kt)
+[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0032-TypeCodecs.kt)
 
 ### Coding and Streaming
 
 You can use encoding and decoding codecs not just for high-level encoding and decoding using `JsonCodingSerializer` and `JsonCodingParser` but also for
 streaming-based encoding and decoding using `JsonEncoder` and `JsonDecoder`.
 
-[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources/0033-CodingAsStream.kt)
+[Full example](https://github.com/fluidsonic/fluid-json/blob/master/examples/sources-jvm/0033-CodingAsStream.kt)
 
 ### Thread Safety
 
